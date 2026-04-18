@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="shs" nsURI="http://mdelab.de/intempo/examples/shs/1.0" nsPrefix="shs">
+  <eClassifiers xsi:type="ecore:EClass" name="SHSRoot">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ownedSHS" upperBound="-1"
+        eType="#//SHSService" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ownedAnnotations" upperBound="-1"
+        eType="#//Annotation" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MonitorableEntity" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="cts" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dts" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Service" abstract="true" eSuperTypes="#//MonitorableEntity">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="probes" upperBound="-1"
+        eType="#//Probe" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="effectors" upperBound="-1"
+        eType="#//Effector" containment="true" eOpposite="#//Effector/modifies"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="affectedBy" upperBound="-1"
+        eType="#//Issue" eOpposite="#//Issue/affects"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Probe" eSuperTypes="#//MonitorableEntity">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="status" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Effector" eSuperTypes="#//MonitorableEntity">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="executes" upperBound="-1"
+        eType="#//AdaptationAction" eOpposite="#//AdaptationAction/effector"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="modifies" lowerBound="1"
+        eType="#//Service" eOpposite="#//Service/effectors"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SHSService" eSuperTypes="#//Service">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="connected" upperBound="-1"
+        eType="#//Service" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DrugService" eSuperTypes="#//Service"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PMonitoringService" eSuperTypes="#//Service"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Issue" eSuperTypes="#//MonitorableEntity">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="handledBy" eType="#//AdaptationAction"
+        eOpposite="#//AdaptationAction/handles"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="affects" upperBound="-1"
+        eType="#//Service" eOpposite="#//Service/affectedBy"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AdaptationAction" eSuperTypes="#//MonitorableEntity">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="effector" lowerBound="1"
+        upperBound="-1" eType="#//Effector" eOpposite="#//Effector/executes"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="handles" lowerBound="1"
+        eType="#//Issue" eOpposite="#//Issue/handledBy"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Annotation" eSuperTypes="#//MonitorableEntity">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="issues" upperBound="-1"
+        eType="#//Issue" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="adaptationActions" upperBound="-1"
+        eType="#//AdaptationAction" containment="true"/>
+  </eClassifiers>
+</ecore:EPackage>

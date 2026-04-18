@@ -1,0 +1,30 @@
+import 'http://mdelab.de/intempo/examples/shs/1.0'
+
+init:{
+	adds shs:SHSRoot
+	adds root:SHSService
+	adds-ref shs -ownedSHS-> root
+	}
+
+"ER Sepsis Triage":{adds pm:PMonitoringService >> PMServices(*p2) [pID=*p2 cts=*p1]
+	adds pr:Probe >> SProbes(*p2) [status="sepsis" cts=*p1]
+	adds-ref pm -probes-> pr
+	adds-ref root -connected-> pm}
+
+"IV Antibiotics":{adds d:DrugService >> DServices(*p2) [pID=*p2 cts=*p1]
+	adds pr:Probe >> AProbes(*p2) [status="anti" cts=*p1]
+	adds-ref d -probes-> pr
+	adds-ref root -connected-> d}
+
+"Release":{adds pr:Probe >> RProbes(*p2) [status="release" cts=*p1]
+	adds-ref $PMServices(*p2) -probes-> pr}
+
+"Delete Sepsis Probe":{modifies $SProbes(*p2) [dts=*p1]}
+
+"Delete PMonitoringService":{modifies $PMServices(*p2) [dts=*p1]}
+
+"Delete Antibiotics Probe":{modifies $AProbes(*p2) [dts=*p1]}
+
+"Delete DrugService":{modifies $DServices(*p2) [dts=*p1] }
+
+"Delete Release Probe":{modifies $RProbes(*p2) [dts=*p1]}
