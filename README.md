@@ -2,7 +2,7 @@
 
 InTempo is a runtime monitoring prototype for systems whose states are amenable to a graph-based representation.
 
-The prototype was developed at Hasso Plattner Institute in the context of this PhD thesis [4], and it is built on the Eclipse Modeling Framework (EMF) [11]. InTempo requires Java 17+ and is available as a CLI (see [cli/intempo.jar](intempo.jar)) and as an EMF plugin. The CLI was developed based on [https://picocli.info/](picocli).
+The prototype was developed at Hasso Plattner Institute in the context of this PhD thesis [4], and it is built on the Eclipse Modeling Framework (EMF) [11]. InTempo requires Java 17+ and is available as a CLI (see [cli/intempo.jar](intempo.jar)) and as an EMF plugin. The CLI was developed based on [picocli](https://picocli.info/).
 
 ## In a Nutshell
 
