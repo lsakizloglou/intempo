@@ -1,8 +1,6 @@
-# Answer Sets and Performance
+# Answer Sets
 
 This file refers to chapters of the [FAC 2025 article](https://doi.org/10.1145/3744714).
-
-## Answer sets
 
 InTempo supports three answer-set semantics and the pruning option, each combination a different trade-off between the precision of answers and amenability to change-driven evaluation. The three answer sets are selected via `--answer-set` (plain, effective, definite); enabling the pruning option `--pruning` creates a *projected variant* of each answer set that is evaluated over a pruned runtime model.
 
