@@ -45,14 +45,14 @@ The query searches for falsifications; each reported line is a violation. The tw
 **Plain** (`--answer-set plain`):
 
 ```
-4600    PMonitoringService#1    [1000,inf]
-11800   PMonitoringService#2    [10000,inf]
+4600    PMonitoringService#1    [1000,inf)
+11800   PMonitoringService#2    [10000,inf)
 ```
 
 **Effective** (`--answer-set effective`):
 
 ```
-4600    PMonitoringService#1    [1000,inf]
+4600    PMonitoringService#1    [1000,inf)
 ```
 
 Both answer sets report patient 1 at round 4600: this is the time point the first analysis round occurs, and coincindetanlly the first time point on which the one-hour temporal constraint is falsified. The match is accompanied by the temporal validity [1000, inf], which in this case states that the property is violated from the time point 1000 onward---until the end of the execution. 
