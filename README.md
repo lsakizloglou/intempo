@@ -42,7 +42,7 @@ Answer sets of InTempo can be parameterized to target different application scen
 
 - [`docs/cli-reference.md`](docs/cli-reference.md): full parameter reference, output format, emission modes, and profiles.
 - [`docs/architecture.md`](docs/architecture.md): brief look "under the hood:" the RTMH, the TGDN, and the change-driven evaluation pipeline.
-- [`docs/answer-sets-and-performance.md`](docs/answer-sets-and-performance.md): the four types of answer sets.
+- [`docs/answer-sets-and-performance.md`](docs/answer-sets.md): types of answer sets and their trade-offs.
 - [`docs/itql-grammar.md`](docs/itql-grammar.md): the ITQL grammar.
 - [`docs/e2p-grammar.md`](docs/e2p-grammar.md): the E2P grammar.
 
