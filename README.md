@@ -50,7 +50,11 @@ Answer sets of InTempo can be parameterized to target different application scen
 
 InTempo is built on the Eclipse Modeling Framework (EMF) and is also available as an EMF plugin. The EMF plugin version used in [1] is available at the [HPI MDELab project page](https://www.hpi.uni-potsdam.de/giese/public/mdelab/mdelab-projects/intempo/) and, for demonstration, as part of the article supplement on Zenodo [2] (`fac24.ova`).
 
-## Assumptions and Limitations
+## Graph pattern matching
+
+For matching graph patterns over a given EMF-based graph, InTempo relies on [Story Diagram Tools](https://www.hpi.uni-potsdam.de/giese/public/mdelab/mdelab-projects/story-diagram-tools/) and specifically the _Story Pattern Matcher_, developed by Stephan Hildebrandt and extended by Matthias Barkowsky.
+
+## Assumptions and limitations
 
 InTempo is intended for complex systems with large, dynamic structures, i.e., large event sequences comprising heavily interrelated data. In small systems or over simple structures, the overhead of the approach would probably outweigh its advantages. 
 
